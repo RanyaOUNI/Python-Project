@@ -337,7 +337,7 @@
                  <p> It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
              </div> 
              <div class="col-md-6 image">
-                 <img src="/flask_app/static/img/about.jpg" alt="">
+                 <img src="{{url_for('static',filename='/img/about.jpg')}}" alt="">
              </div>
          </div>
     </div>
@@ -382,7 +382,8 @@
        <div class="row">
             <div class="col-md-3 col-sm-6 vd">
                <div class="bkjiu">
-                <img src="assets/images/gallery/g1.jpg" alt="">
+                <img src="{{ url_for('static', filename='img/homepics/blog/blog_2.jpg') }}" alt="">
+
                 <h4><b>1 - </b>Registration</h4>
                 <p>Ut wisi enim ad minim veniam, quis laore nostrud exerci tation ulm hedi corper turet suscipit lobortis</p>
                 <button class="btn btn-sm btn-danger">Readmore <i class="fas fa-arrow-right"></i></button>
@@ -390,7 +391,7 @@
             </div>
             <div class="col-md-3 col-sm-6 vd">
                <div class="bkjiu">
-                <img src="assets/images/gallery/g2.jpg" alt="">
+                <img src="{{url_for('static',filename='/img/gallery/g.jpg')}}" alt="">
                    <h4><b>2 - </b>Seeing</h4>
                 <p>Ut wisi enim ad minim veniam, quis laore nostrud exerci tation ulm hedi corper turet suscipit lobortis</p>
                 <button class="btn btn-sm btn-danger">Readmore <i class="fas fa-arrow-right"></i></button>
