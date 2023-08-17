@@ -51,7 +51,13 @@ a:hover {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 999; }
+  z-index: 999; 
+  background: rgba( 41, 41, 41, 0.25 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 4px );
+-webkit-backdrop-filter: blur( 4px );
+border-radius: 10px;
+}
   .my-nav .nav-items {
     display: flex;
     flex-wrap: wrap;
@@ -648,19 +654,21 @@ a:hover {
       .hero-section{
         align-items: center;
         background-image: linear-gradient(15deg, white 150%);
-        display: flex;
         min-height: 100%;
-        justify-content: space-around;
+        min-width: 100%;
         padding: var(--spacing-xxl) var(--spacing-l);
+        margin-bottom: 20px;
+        
       }
       
       .card-grid{
         display: grid;
+        
         grid-template-columns: repeat(1, 1fr);
         grid-column-gap: var(--spacing-l);
         grid-row-gap: var(--spacing-l);
         max-width: var(--width-container);
-        width: 100%;
+        
       }
       
       @media(min-width: 540px){
@@ -678,6 +686,8 @@ a:hover {
       .card{
         list-style: none;
         position: relative;
+        min-width: 350px;
+        margin-left: 100px;
       }
       
       .card:before{
@@ -687,7 +697,8 @@ a:hover {
         width: 100%;
       }
       
-      .card__background{
+      .card__background1{
+        background-image: url('../img/Wavy_Gen-01_Single-07.jpg');
         background-size: cover;
         background-position: center;
         border-radius: var(--spacing-l);
@@ -698,7 +709,41 @@ a:hover {
         right: 0;
         top: 0;
         transform-origin: center;
-        trsnsform: scale(1) translateZ(0);
+        transform: scale(1) translateZ(0);
+        transition: 
+          filter 200ms linear,
+          transform 200ms linear;
+      }
+      .card__background2{
+        background-image: url('../img/AdobeStock_96077494_Preview.jpeg');
+        background-size: cover;
+        background-position: center;
+        border-radius: var(--spacing-l);
+        bottom: 0;
+        filter: brightness(0.75) saturate(1.2) contrast(0.85);
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        transform-origin: center;
+        transform: scale(1) translateZ(0);
+        transition: 
+          filter 200ms linear,
+          transform 200ms linear;
+      }
+      .card__background3{
+        background-image: url('../img/AdobeStock_174948675_Preview.jpeg');
+        background-size: cover;
+        background-position: center;
+        border-radius: var(--spacing-l);
+        bottom: 0;
+        filter: brightness(0.75) saturate(1.2) contrast(0.85);
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        transform-origin: center;
+        transform: scale(1) translateZ(0);
         transition: 
           filter 200ms linear,
           transform 200ms linear;
@@ -732,6 +777,7 @@ a:hover {
         text-shadow: 2px 2px 20px rgba(0,0,0,0.2);
         line-height: 1.4;
         word-spacing: 100vw;
+        
       }
       /* ================================ About Us =============================== */
 
@@ -755,7 +801,7 @@ a:hover {
 footer {
   padding: 50px 0px 0px;
   position: relative;
-  background-image: url(/flask_app/static/img/homepics/background/1.jpg);
+  background-image: url('../img/homepics/background/1.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
