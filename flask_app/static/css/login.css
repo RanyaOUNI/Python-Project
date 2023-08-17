@@ -307,7 +307,7 @@ body {
 
 
 .box-de {
-  background-image: url(/flask_app/static/img/Baldwin-1-10-Reasons-to-Donate-Blood.jpeg);
+  background-image: url('../img/Baldwin-1-10-Reasons-to-Donate-Blood.jpeg');
   background-size: 100%;
   background-repeat: no-repeat; 
   background-size: cover;
