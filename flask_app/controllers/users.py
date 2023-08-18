@@ -9,6 +9,24 @@ bcrypt = Bcrypt(app)
 @app.route('/')
 def index():
     return render_template("home.html")
-@app.route('/sign in')
-def sign():
-    return render_template("registration_form")
+
+@app.route('/login')
+def login():
+    return render_template("login.html")
+
+@app.route('/register')
+def register():
+    return render_template("registration_form.html")
+
+@app.route('/user')
+def user():
+    return render_template("user.html")
+
+@app.route('/register2')
+def register2():
+    return render_template("register2.html")
+
+@app.route('/my_account')
+def my_account():
+    return render_template("my_account.html")
+

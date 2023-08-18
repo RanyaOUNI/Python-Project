@@ -1,11 +1,4 @@
-/* =======================================================================
-Template Name: Dil Hospital
-Author:  SmartEye Adminpanel
-Author URI: www.smarteyeapps.com
-Version: 1.0
-coder name:Prabin Raja
-Description: This Template is created for web template
-======================================================================= */
+
 /* ===================================== Import Less ================================== */
 @font-face {
   font-family: 'mouse-300';
@@ -19,8 +12,7 @@ Description: This Template is created for web template
   padding: 0px;
   list-style: none; }
 
-img {
-  max-width: 100%; }
+
 
 a {
   text-decoration: none;
@@ -75,10 +67,7 @@ p {
 .h-100 {
   height: 100%; }
 
-::placeholder {
-  color: #747f8a !important;
-  font-size: 13px;
-  opacity: .5 !important; }
+
 
 .container-fluid {
   padding: 0px; }
@@ -94,7 +83,7 @@ body {
   font-family: "mouse-300", Arial, Helvetica, sans-serif;
   color: #6A6A6A; }
 
-.session-title {
+/* .session-title {
   padding: 30px;
   margin: 0px; }
   .session-title h2 {
@@ -107,7 +96,7 @@ body {
     margin: auto; }
   .session-title span {
     float: right;
-    font-style: italic; }
+    font-style: italic; } */
 
 .inner-title {
   padding: 20px;
@@ -122,7 +111,7 @@ body {
     width: 100%;
     text-align: center; }
 
-.page-nav {
+/* .page-nav {
   padding: 40px;
   text-align: center;
   padding-top: 160px; }
@@ -146,7 +135,7 @@ body {
       text-align: center;
       color: #444; }
     .page-nav ul li a {
-      color: #444; }
+      color: #444; } */
 
 .btn-success {
   background-color: #00ab9f;
@@ -162,7 +151,7 @@ body {
     border-color: #00ab9f !important;
     box-shadow: none !important; }
 
-.btn-info {
+/* .btn-info {
   background-color: #4f6dcd;
   border-color: #4f6dcd; }
   .btn-info:hover {
@@ -174,7 +163,7 @@ body {
   .btn-info:focus {
     background-color: #4f6dcd !important;
     border-color: #4f6dcd !important;
-    box-shadow: none !important; }
+    box-shadow: none !important; } */
 
 .btn {
   box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
@@ -191,9 +180,9 @@ body {
 .collapse.show {
   display: block !important; }
 
-.form-control:focus {
+/* .form-control:focus {
   box-shadow: none;
-  border: 2px solid #dc3545 !important; }
+  border: 2px solid #dc3545 !important; } */
 
 .form-control {
   background-color: #F8F8F8;
@@ -203,8 +192,27 @@ body {
     border-color: #CCC; }
 
 .container {
-  max-width: 1100px; }
+  max-width: 900px; 
 
+}
+/* ===================================== Navbar CSS ================================== */
+.right-nav {
+  display: flex;
+  align-items: center;
+}
+.right-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+.right-nav li {
+  margin-right: 15px;
+}
+.nav-item a{
+  margin-left: 20px;
+}
 /* ===================================== Header CSS ================================== */
 @media screen and (max-width: 991px) {
   .cdvfdfd {
@@ -213,13 +221,14 @@ body {
 .login-box {
   background-color: #FFF;
   float: none;
-  margin: auto;
+  /* margin: auto; */
   border-radius: 25px !important;
   -webkit-box-shadow: 0px 0px 72px -10px rgba(0, 0, 0, 0.44);
   -moz-box-shadow: 0px 0px 72px -10px rgba(0, 0, 0, 0.44);
   box-shadow: 0px 0px 72px -10px rgba(0, 0, 0, 0.44);
   border-radius: 5px;
-  margin-top: 6%; }
+  margin: -20%; 
+}
   @media screen and (max-width: 575px) {
     .login-box {
       margin-top: 0px; } }
@@ -234,7 +243,7 @@ body {
     text-align: center;
     align-items: center;
     color: #c82333;
-    font-size: 1.2rem; }
+    font-size: 2rem; }
     .log-det .small-logo i {
       font-size: 32px;
       margin-right: 10px; }
@@ -274,111 +283,34 @@ body {
   .log-det .btn {
     width: 100%; }
   .log-det .text-box-cont {
-    max-width: 300px;
+    max-width: 800px;
     float: none;
     margin: auto; }
-    .log-det .text-box-cont .input-group .input-group-prepend span {
+    /* .log-det .text-box-cont .input-group .input-group-prepend span {
       background-color: #F8F8F8;
       border-radius: 0px;
       border-right: 0px;
       border-bottom-left-radius: 50px;
-      border-top-left-radius: 50px; }
+      border-top-left-radius: 50px; } */
     .log-det .text-box-cont .input-group .input-group-prepend i {
       color: #777474;
       font-size: 14px; }
-    .log-det .text-box-cont .input-group input {
-      border-left: 0px;
-      border-radius: 0px;
-      border-bottom-right-radius: 50px;
-      border-top-right-radius: 50px; }
+    
     .log-det .text-box-cont .btn {
       border-radius: 50px;
       padding: 10px 30px;
-      margin: auto;
+      /* margin: auto; */
       margin-bottom: 10px;
       font-size: 13px; }
-  .log-det .forget-p {
-    margin-top: 10px;
-    font-size: .9rem; }
-    .log-det .forget-p span {
-      color: #c82333;
+  
+    .log-det .forget-o {
+      color: #777474;
       font-weight: 600;
-      margin-left: 5px; }
+      margin: auto; }
+
+      .log-det .forget-p {
+        color: #c82333;
+        font-weight: 600;
+        margin: auto; }  
 
 
-.box-de {
-  background-image: url('../img/Baldwin-1-10-Reasons-to-Donate-Blood.jpeg');
-  background-size: 100%;
-  background-repeat: no-repeat; 
-  background-size: cover;
-  padding: 0px;
-  border-top-right-radius: 25px;
-  border-bottom-right-radius: 25px; }
-  .box-de .inn-cover {
-    display: flex;
-    height: 50%; 
-    background-color: rgba(200, 35, 51, 0.7);
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-top-right-radius: 25px;
-    border-bottom-right-radius: 25px;
-    padding: 30px; }
-    @media screen and (max-width: 767px) {
-      .box-de .inn-cover {
-        border-top-right-radius: 0px;
-        border-bottom-left-radius: 25px;
-        position: relative; } }
-  @media screen and (max-width: 767px) {
-    .box-de {
-      border-bottom-left-radius: 25px; } }
-  .box-de .ditk-inf {
-    margin: auto;
-    align-items: center;
-    text-align: center;
-    color: #FFF; }
-    .box-de .ditk-inf .small-logo {
-      position: relative;
-      top: 0px;
-      margin-bottom: 20px;
-      font-size: 1.3rem; }
-      .box-de .ditk-inf .small-logo i {
-        font-size: 44px; }
-    .box-de .ditk-inf p {
-      margin-top: 15px;
-      font-size: .9rem; }
-    .box-de .ditk-inf .btn-outline-light {
-      border-radius: 50px;
-      box-shadow: none;
-      padding: 5px 20px;
-      margin-top: 25px; }
-  .box-de .small-logo {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    color: #FFF; }
-    .box-de .small-logo i {
-      font-size: 22px;
-      margin-right: 5px; }
-  .box-de .foter-credit {
-    position: absolute;
-    bottom: 10px;
-    right: 6%;
-    font-size: 14px;
-    padding: 10px;
-    color: #FFF;
-    font-weight: 300; }
-    .box-de .foter-credit a {
-      color: #FFF; }
-    @media screen and (max-width: 767px) {
-      .box-de .foter-credit {
-        display: none; } }
-
-.sup {
-  margin-top: 40px; }
-
-@media screen and (max-width: 767px) {
-  .sup-oi {
-    margin-top: 40px !important; } }
-
-/*# sourceMappingURL=style.css.map */
