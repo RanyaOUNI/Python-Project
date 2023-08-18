@@ -24,8 +24,3 @@ class User :
         self.updated_at = data_dict['updated_at']
         self.CIN = data_dict['CIN']
         self.donation_id = data_dict['donation_id']
-        
-
-
-        
-    
