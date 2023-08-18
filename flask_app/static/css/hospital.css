@@ -1,0 +1,135 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: cambria;
+}
+
+li ,a ,button{
+    font-family: sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    text-decoration: none;
+
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%;
+}
+
+body{
+    min-height: 100vh;
+    
+}
+
+h1{
+    font-family: sans-serif;
+    font-weight: 300;
+    color: #b71111;
+    text-align: center;
+}
+
+.table_body{
+    width: 95%;
+    max-height: 90%;
+    margin: auto;
+    background-color: #fffb;
+    overflow: auto;
+    box-shadow: gray;
+
+}
+
+.table__body::-webkit-scrollbar{
+    width: 0.5rem;
+    height: 0.5rem;
+}
+
+.table__body::-webkit-scrollbar-thumb{
+    border-radius: .5rem;
+    background-color: #0004;
+    visibility: hidden;
+}
+
+.table__body:hover::-webkit-scrollbar-thumb{ 
+    visibility: visible;
+}
+
+table {
+    width: 90%;
+    padding: 3px;
+}
+
+
+table, th, td {
+    padding: 1rem;
+    text-align: center;
+}
+
+thead th {
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: #d5d1defe;
+    cursor: pointer;
+    text-transform: capitalize;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #0000000b;
+}
+
+tbody tr {
+    --delay: .1s;
+    transition: .5s ease-in-out var(--delay), background-color 0s;
+}
+
+tbody tr.hide {
+    opacity: 0;
+    transform: translateX(100%);
+}
+
+thead th:hover {
+    background-color:#fffb;
+}
+
+.button1 {
+    line-height: 1;
+    display: inline-block;
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-right: 2px;
+    color: #fff;
+    padding: 5px;
+    background-color: #2a891b;
+}
+
+.button2 {
+    line-height: 1;
+    display: inline-block;
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 5px;
+    color: #fff;
+    padding: 5px;
+    background-color: #b71111;
+}
+
+
+.select{
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+.radio{
+    display: flex;
+    align-items: normal;
+    justify-content: space-between;
+}
+
+
+
