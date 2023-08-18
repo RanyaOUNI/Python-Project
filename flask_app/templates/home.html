@@ -348,8 +348,9 @@
   
   <div class="card-grid">
     <a class="card" href="#">
-      <div class="card__background" style="background-image: url(/flask_app/static/img//Wavy_Gen-01_Single-07.jpg)"></div>
+      <div class="card__background" style="background-image: url(/flask_app/static/img/Wavy_Gen-01_Single-07.jpg)"></div>
       <div class="card__content">
+        <img src="{{url_for('static',filename='/img/about.jpg')}}" alt="">
         
         <h3 class="card__heading">Create an account</h3>
       </div>
@@ -684,6 +685,7 @@
 </body>
 
 <script src="/flask_app/static/js/script.js"></script>
+
 <script src="/flask_app/static/js/jquery-3.2.1.min.js"></script>
 <script src="/flask_app/static/js/popper.min.js"></script>
 <script src="/flask_app/static/js/bootstrap.min.js"></script>
