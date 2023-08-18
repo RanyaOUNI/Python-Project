@@ -25,3 +25,8 @@ def user():
 @app.route('/register2')
 def register2():
     return render_template("register2.html")
+
+@app.route('/my_account')
+def my_account():
+    return render_template("my_account.html")
+
