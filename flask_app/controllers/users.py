@@ -30,3 +30,7 @@ def register2():
 def my_account():
     return render_template("my_account.html")
 
+@app.route('/hospital_dashboard')
+def hospital_dashboard():
+    return render_template("Hospital.html")
+
