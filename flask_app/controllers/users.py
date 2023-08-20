@@ -34,3 +34,5 @@ def my_account():
 def hospital_dashboard():
     return render_template("Hospital.html")
 
+
+
