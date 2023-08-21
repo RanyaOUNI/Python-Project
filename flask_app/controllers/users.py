@@ -76,7 +76,8 @@ def user():
 
 @app.route('/register2')
 def register2():
-    return render_template("register2.html")
+    all_blood = Demand.get_all_demands_with_hospitals()
+    return render_template("register2.html",all_blood = all_blood)
 
 # @app.route('/register2', methods=["POST"])
 # def register2():
