@@ -15,6 +15,6 @@ class Donation:
         self.demand_id = data_dict['demand_id']
         self.user_id = data_dict['user_id']
         self.user_blood_type_id = data_dict['user_blood_type_id']
-        self.user_donations_id = data_dict['created_at']
+        self.user_donation_id = data_dict['user_donation_id']
         self.created_at = data_dict['created_at']
         self.updated_at = data_dict['updated_at']
