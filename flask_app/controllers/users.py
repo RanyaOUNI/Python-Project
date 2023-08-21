@@ -1,6 +1,6 @@
 from flask_app import app
 from flask import render_template , request, redirect,session, flash
-from flask_app.models.donation import Donationfrom 
+from flask_app.models.donation import Donation
 from flask_app.models.user import User
 
 from flask_bcrypt import Bcrypt
@@ -40,10 +40,6 @@ def dashboard():
     return render_template("login.html",user=logged_user)
 
 
-# @app.route('/register')
-# def form_register():
-#     return render_template("register.html")
-
 
 
 @app.route('/register', methods=["POST"])
@@ -60,6 +56,14 @@ def register():
          session['user_id'] = user_id
          return redirect('/register2')
     return redirect('/register')
+
+
+
+# @app.route('/register_page')
+# def form_register():
+#     return render_template("register.html")
+
+
 
 @app.route('/user')
 def user():
