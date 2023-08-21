@@ -21,6 +21,10 @@ class Demand:
         self.gender = data_dict['gender']
         self.created_at = data_dict['created_at']
         self.updated_at = data_dict['updated_at']
+        self.hospital = {}
+        self.blood_type = {}
+        self.donation= {}
+
 
     @classmethod
     def create(cls,data_dict):
@@ -95,9 +99,6 @@ class Demand:
         
         return is_valid   
 
-        self.hospital = {}
-        self.blood_type = {}
-        self.donation= {}
 
         
         
