@@ -45,8 +45,8 @@ def register():
          }
          user_id = User.create(data_dict)
          session['user_id'] = user_id
-         return redirect('/registration_form')
-    return redirect('/')
+         return redirect('/register2')
+    return redirect('/register')
 
 @app.route('/user')
 def user():
@@ -67,5 +67,5 @@ def my_account():
 
 @app.route('/register')
 def form_register():
-    return render_template("registration_form.html")
+    return render_template("register.html")
 
