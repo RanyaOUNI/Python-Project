@@ -57,25 +57,25 @@ class User :
         is_valid = True
         if len( data_dict['first_name'])< 2:
             print("First Name too short .....")
-            flash("First Name too short .....", "register")
+            flash("First Name too short .....", "first_name")
             is_valid = False
         if len(data_dict['last_name'])< 2:
             print("Last Name too short .....")
-            flash("Last Name too short .....", "register")
+            flash("Last Name too short .....", "last_name")
             is_valid = False
         if len(data_dict['password'])< 7:
             print("Password too short .....")
-            flash("Password too short .....", "register")
+            flash("Password too short .....", "password")
             is_valid = False
-        elif data_dict['password'] != data_dict['confirm_password']:
+        if data_dict['password'] != data_dict['confirm_password']:
             print("Password and Confirm password Don't match !!!!!")
-            flash("Password and Confirm password Don't match !!!!!", "register",)
+            flash("Password and Confirm password Don't match !!!!!", "confirm_password",)
             is_valid = False
         if not EMAIL_REGEX.match(data_dict['email']): 
-            flash("Invalid email address!")
+            flash("Invalid email address!","email")
             is_valid = False
         elif User.get_by_email({'email':data_dict['email']}):
-            flash("Email Already taken . Hope by you !!!! ", "register")
+            flash("Email Already taken . Hope by you !!!! ", "email")
             is_valid = False
         return is_valid
 

@@ -9,7 +9,7 @@ body {
 display: grid;
 height: 100vh;
 place-items: center;
-background: url('donate1.jpg');
+background: url('../img/donate1.jpg');
 background-size: cover;
 }
 
