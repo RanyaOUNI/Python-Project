@@ -23,7 +23,7 @@ class User :
         self.created_at = data_dict['created_at']
         self.updated_at = data_dict['updated_at']
         self.CIN = data_dict['CIN']
-        self.donation_id = data_dict['donation_id']
+        # self.donation_id = data_dict['donation_id']
         
 
     @classmethod
