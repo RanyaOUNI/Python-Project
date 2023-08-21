@@ -1,7 +1,9 @@
 from flask_app import app
 from flask import render_template , request, redirect,session, flash
+from flask_app.models.donation import Donation
+from flask_bcrypt import Bcrypt
+from flask_app.models.demand import Demand   
 
-from flask_bcrypt import Bcrypt        
 bcrypt = Bcrypt(app)
 
 
@@ -20,7 +22,9 @@ def register():
 
 @app.route('/user')
 def user():
-    return render_template("user.html")
+    every_demand = Demand.get_all_demands_with_hospitals()
+    print(every_demand[0].hospital)
+    return render_template("user.html", every_demand = every_demand)
 
 @app.route('/register2')
 def register2():
@@ -34,3 +38,7 @@ def my_account():
 def hospital_dashboard():
     return render_template("Hospital.html")
 
+@app.route('/blood_request')
+def blood_request():
+    every = Demand.get_all_demands_with_hospitals()
+    return render_template("blood_request.html",every = every)

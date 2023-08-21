@@ -1,4 +1,4 @@
-from flask_app import DATABASE
+from flask_app import DATABASE_NAME
 from flask_app.config.mysqlconnection import MySQLConnection
 from flask import flash
 
