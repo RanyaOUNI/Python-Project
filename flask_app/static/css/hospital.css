@@ -14,8 +14,14 @@ li ,a ,button{
 
 }
 
-.navbar{
+/* .navbar{
     border-bottom: 2px solid #b71111;
+} */
+
+img{
+width: 200px;
+height: 90px;
+margin-left: 20px;
 }
 
 body{
