@@ -1,6 +1,6 @@
 from flask_app import app
 from flask import render_template , request, redirect,session, flash
-from flask_app.models.donation import Donationfrom 
+from flask_app.models.donation import Donation
 from flask_app.models.user import User
 
 from flask_bcrypt import Bcrypt
@@ -62,7 +62,8 @@ def user():
 
 @app.route('/register2')
 def register2():
-    return render_template("register2.html")
+    all_blood = Demand.get_all_demands_with_hospitals()
+    return render_template("register2.html",all_blood = all_blood)
 
 @app.route('/my_account')
 def my_account():
