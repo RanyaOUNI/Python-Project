@@ -1,8 +1,11 @@
 from flask_app import app
 from flask import render_template , request, redirect,session, flash
+from flask_app.models.donation import Donationfrom 
 from flask_app.models.user import User
 
-from flask_bcrypt import Bcrypt        
+from flask_bcrypt import Bcrypt
+from flask_app.models.demand import Demand   
+
 bcrypt = Bcrypt(app)
 
 @app.route('/')
@@ -58,13 +61,14 @@ def register():
          return redirect('/register2')
     return redirect('/register')
 
-# @app.route('/user')
-# def user():
-#     if 'user_id' not in session:
-#         return redirect('/home.html')
-#     logged_user = User.get_by_id({'id':session['user_id']})
-#     return render_template("user.html")
-
+@app.route('/user')
+def user():
+    every_demand = Demand.get_all_demands_with_hospitals()
+    print(every_demand[0].hospital)
+    if 'user_id' not in session:
+        return redirect('/home.html')
+    logged_user = User.get_by_id({'id':session['user_id']})
+    return render_template("user.html", every_demand = every_demand)
 
 @app.route('/register2')
 def register2():
@@ -83,5 +87,12 @@ def register2():
 def my_account():
     return render_template("my_account.html")
 
+@app.route('/hospital_dashboard')
+def hospital_dashboard():
+    return render_template("Hospital.html")
 
 
+@app.route('/blood_request')
+def blood_request():
+    every = Demand.get_all_demands_with_hospitals()
+    return render_template("blood_request.html",every = every)
