@@ -23,4 +23,61 @@ class User :
         self.created_at = data_dict['created_at']
         self.updated_at = data_dict['updated_at']
         self.CIN = data_dict['CIN']
-        self.donation_id = data_dict['donation_id']
+        # self.donation_id = data_dict['donation_id']
+        
+
+    @classmethod
+    def create(cls, data_dict):
+        query = """INSERT INTO users 
+                    (first_name, last_name, email, password)
+                    VALUES 
+                    (%(first_name)s,%(last_name)s,%(email)s,%(password)s);"""
+        print("***********not*********")
+        return MySQLConnection(DATABASE_NAME).query_db(query, data_dict)
+    
+    @classmethod
+    def get_by_id(cls, data_dict):
+        query = """SELECT * FROM users WHERE id =%(id)s;"""
+        result = MySQLConnection(DATABASE_NAME).query_db(query, data_dict)
+        return cls(result[0])
+    
+
+    @classmethod
+    def get_by_email(cls, data_dict):
+        query = """SELECT * FROM users WHERE email = %(email)s;"""
+        result =MySQLConnection(DATABASE_NAME).query_db(query, data_dict)
+        if result:
+            return cls(result[0])
+        return False
+    
+
+
+    @staticmethod
+    def validate_register(data_dict):
+        is_valid = True
+        if len( data_dict['first_name'])< 2:
+            print("First Name too short .....")
+            flash("First Name too short .....", "first_name")
+            is_valid = False
+        if len(data_dict['last_name'])< 2:
+            print("Last Name too short .....")
+            flash("Last Name too short .....", "last_name")
+            is_valid = False
+        if len(data_dict['password'])< 7:
+            print("Password too short .....")
+            flash("Password too short .....", "password")
+            is_valid = False
+        if data_dict['password'] != data_dict['confirm_password']:
+            print("Password and Confirm password Don't match !!!!!")
+            flash("Password and Confirm password Don't match !!!!!", "confirm_password",)
+            is_valid = False
+        if not EMAIL_REGEX.match(data_dict['email']): 
+            flash("Invalid email address!","email")
+            is_valid = False
+        elif User.get_by_email({'email':data_dict['email']}):
+            flash("Email Already taken . Hope by you !!!! ", "email")
+            is_valid = False
+        return is_valid
+
+
+   

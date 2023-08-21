@@ -13,6 +13,8 @@ class Donation:
         self.demand_id = data_dict['demand_id']
         self.hospital_id = data_dict['hospital_id']
         self.user_id = data_dict['user_id']
+        self.user_blood_type_id = data_dict['user_blood_type_id']
+        self.user_donations_id = data_dict['created_at']
         self.created_at = data_dict['created_at']
         self.updated_At = data_dict['updated_At']
         self.hospital = {}
