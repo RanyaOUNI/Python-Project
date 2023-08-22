@@ -2,9 +2,7 @@ from flask_app import app
 from flask import render_template , request, redirect,session, flash
 from flask_app.models.donation import Donation
 from flask_app.models.user import User
-from flask_app.models.hospital import Hospital
 from flask_app.models.blood_type import Blood_type
-
 from flask_bcrypt import Bcrypt
 from flask_app.models.demand import Demand   
 
@@ -58,16 +56,13 @@ def register():
             **request.form,
             'password':pw_hash
         }
-        user_id = User.create(data_dict)
-        session['user_id'] = user_id
+        session['pw_hash']=pw_hash
+         session['first_name']=request.form['first_name']
+         session['last_name']=request.form['last_name']
+        session['email']=request.form['email']
+        #  session['user_id'] = user_id
         return redirect('/register2')
     return redirect('/register')
-
-
-
-@app.route('/register_page')
-def form():
-    return render_template("register.html")
 
 
 
@@ -75,22 +70,34 @@ def form():
 def user():
     every_demand = Demand.get_all_demands_with_hospitals()
     print(every_demand[0].hospital)
-    Hospital.get_hospital_with_donations()
+    if 'user_id' not in session:
+        return redirect('/home.html')
+    logged_user = User.get_by_id({'id':session['user_id']})
+    return render_template("user.html", every_demand = every_demand )
 
-    return render_template("user.html", every_demand = every_demand)
+@app.route('/second_register')
+def form11():
+    all_blood = Blood_type.get_all_types()
+    return render_template("register2.html", all_blood=all_blood)
 
+@app.route('/register2', methods=['POST'])
 @app.route('/register2' ,methods =['POST'])
 def register2():
-    all_blood = Demand.get_all_demands_with_hospitals()
-    return render_template("register2.html",all_blood = all_blood)
+    data={
+        'blood_type_id':request.form['blood_type_id'],
+        'first_name':session['first_name'],
+        'last_name': session['last_name'],
+        'email': session['email'],
+        'password':session['pw_hash'],
+        'phone':request.form['phone'],
+        'CIN':request.form['CIN'],
+        'date_birth':request.form['date'],
+        'address':request.form['address']
+    }
+    user_id = User.create(data)
+    return redirect("/user")
 
-# @app.route('/register2', methods=["POST"])
-# def register2():
-#     if User.validate_register(request.form):
-#         user_id = User.create(data_dict)
-#         session['user_id'] = user_id
-#         return redirect('/user.html')
-#     return redirect('/register2')
+
 
 
 @app.route('/my_account')
@@ -107,3 +114,13 @@ def hospital_dashboard():
 def blood_request():
     every = Demand.get_all_demands_with_hospitals()
     return render_template("blood_request.html",every = every)
+
+
+@app.route('/register')
+def form():
+    return render_template("register.html")
+
+
+
+
+

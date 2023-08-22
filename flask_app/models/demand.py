@@ -56,6 +56,7 @@ class Demand:
         recipe.poster = f"{result[0]['first_name']}"
         return recipe
     
+    
 
     @classmethod
     def update(cls,data_dict):
@@ -69,7 +70,8 @@ class Demand:
     
     @classmethod
     def delete(cls,data_dict):
-        query= """DELETE FROM recipes WHERE id= %(id)s; """
+        query=  "DELETE FROM recipes WHERE id= %(id)s;" 
+                
         return MySQLConnection(DATABASE_NAME).query_db(query,data_dict)
 
 
@@ -98,46 +100,44 @@ class Demand:
 
     @classmethod 
     def get_all_demands_with_hospitals(cls):
-            query = """
-select * from demands
-left join hospitals on hospitals.id = demands.hospital_id
-left join blood_type on blood_type.id = demands.blood_type_id 
-left join donations on donations.id = demands.id
-left join users on users.id = demands.blood_type_id;
-"""     
-            result = MySQLConnection(DATABASE_NAME).query_db(query)
-            print(result)
-            demands = []
-            for row in result:
-                demand = cls(row)
-                hospital = { 
-                'id':row['hospitals.id'],
-                'name':row['name'],
-                'address':row['address'],
-                'email':row['email'],
-                'password':row['password'],
-                'created_at':row['hospitals.created_at'],
-                'updated_at':row['updated_at']
-            }   
-                blood_type = {
-                    'id':row['blood_type.id'],
-                    'type':row['type'],
-                }
-                donation = {
-                    'id':row['id'],
-                    'demand_id':row['demand_id'],
-                    'hospital_id':row['hospital_id'],
-                    'user_id':row['user_id'],
-                    'is_confirmed':row['is_confirmed'],
-                    'created_at':row['created_at'],
-                    'updated_At':row['updated_At'],
-                }
-                
-                demand.donation = Donation(donation)
-                demand.hospital = Hospital(hospital)
-                demand.blood_type = Blood_type(blood_type)
-                demands.append(demand)
-            return demands
+        query = """
+                select * from demands
+                left join hospitals on hospitals.id = demands.hospital_id
+                left join blood_type on blood_type.id = demands.blood_type_id 
+                left join donations on donations.id = demands.id;
+                """
+        result = MySQLConnection(DATABASE_NAME).query_db(query)
+        print(result)
+        demands = []
+        for row in result:
+            demand = cls(row)
+            hospital = { 
+            'id':row['hospitals.id'],
+            'name':row['name'],
+            'address':row['address'],
+            'email':row['email'],
+            'password':row['password'],
+            'created_at':row['hospitals.created_at'],
+            'updated_at':row['updated_at']
+        }   
+            blood_type = {
+                'id':row['blood_type.id'],
+                'type':row['type'],
+            }
+            donation = {
+                'id':row['id'],
+                'demand_id':row['demand_id'],
+                'hospital_id':row['hospital_id'],
+                'user_id':row['user_id'],
+                'is_confirmed':row['is_confirmed'],
+                'created_at':row['created_at'],
+                'updated_At':row['updated_At'],
+            }
+            demand.donation = Donation(donation)
+            demand.hospital = Hospital(hospital)
+            demand.blood_type = Blood_type(blood_type)
+            demands.append(demand)
+        return demands
 
 
     @classmethod
