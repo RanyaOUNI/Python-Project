@@ -32,15 +32,15 @@
 
             <div class="input_field">
                 <label for="date_of_birth">Date Of Birth :</label>
-                <input type="date" class="date" name="date" required>
+                <input type="date" class="date" name="date_birth" required>
                     
             </div>
 
             <div class="input_field">
                 <label for="">Blood Type :</label>
-                <select class="blood_type" name="type_blood" required>
+                <select class="blood_type" name="blood_type_id" required>
                     {%for blood in all_blood%}
-                    <option value="{{blood.id}}">{{blood.type}}</option>
+                    <option  value="{{blood.id}}">{{blood.type}}</option>
                     {%endfor%}                                           
                 </select>
             </div>
@@ -57,7 +57,7 @@
 
             <div class="input_field">
                 <label for="home_adress">Home Address :</label>
-                <input type="text" class="input">                                      
+                <input type="text" class="input" name="address">                                      
             </div>
 
             <div class="input_field">
