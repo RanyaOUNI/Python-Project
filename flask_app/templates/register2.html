@@ -6,6 +6,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="{{url_for('static', filename='css/register2.css')}}" />
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    
     <title>BloodHub</title>
 </head>
 <body>
@@ -38,7 +39,7 @@
 
             <div class="input_field">
                 <label for="">Blood Type :</label>
-                <select class="blood_type" name="type_blood" required>
+                <select class="blood_type" name="blood_type_id" required>
                     {%for blood in all_blood%}
                     <option value="{{blood.id}}">{{blood.type}}</option>
                     {%endfor%}                                           
