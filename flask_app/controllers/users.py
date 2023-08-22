@@ -14,6 +14,12 @@ def index():
     return render_template("home.html")
 
 
+@app.route("/logout", methods=["POST"])
+def logout():
+    session.clear()
+    return redirect("/")
+
+
 @app.route("/login")
 def form_register():
     return render_template("login.html")
@@ -32,7 +38,7 @@ def login():
             flash("Wrong Password !!!", "login")
             return redirect("/user.html")
         session["user_id"] = user_from_db.id
-        return redirect("/user.html")
+        return redirect("/user")
     flash("Wrong email !!!!", "login")
     return redirect("/login")
 
