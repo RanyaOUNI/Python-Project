@@ -28,11 +28,24 @@ class User :
     @classmethod
     def create(cls, data_dict):
         query = """INSERT INTO users 
-                    (first_name, last_name, email, password)
-                    VALUES 
-                    (%(first_name)s,%(last_name)s,%(email)s,%(password)s);"""
+                    (first_name, last_name, email, password,phone,address,CIN,date_birth,blood_type_id)
+                    VALUES
+                    (%(first_name)s,%(last_name)s,%(email)s,%(password)s,%(phone)s,%(address)s,%(CIN)s,%(password)s,%(date_birth)s,%(blood_type_id)s);"""
         print("***********not*********")
         return MySQLConnection(DATABASE_NAME).query_db(query, data_dict)
+    
+    @classmethod
+    def update(cls, data_dict):
+        query = """UPDATE users SET
+                blood_type_id=%(blood_type_id)s, 
+                phone=%(phone)s, 
+                CIN=%(CIN)s
+                WHERE id=%(id)s"""
+        
+        print("***********not*********")
+        return MySQLConnection(DATABASE_NAME).query_db(query, data_dict)
+    
+
     
     @classmethod
     def get_by_id(cls, data_dict):
@@ -48,6 +61,8 @@ class User :
         if result:
             return cls(result[0])
         return False
+    
+
     
 
 
