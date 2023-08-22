@@ -17,6 +17,7 @@ class User:
         self.last_name = data_dict["last_name"]
         self.email = data_dict["email"]
         self.password = data_dict["password"]
+        self.date_birth = data_dict["date_birth"]
         self.role = data_dict["role"]
         self.phone = data_dict["phone"]
         self.created_at = data_dict["created_at"]
@@ -26,16 +27,19 @@ class User:
     @classmethod
     def create(cls, data_dict):
         query = """INSERT INTO users 
-                    (first_name, last_name, email, password,phone,address,CIN,date_birth,blood_type_id)
+                    (blood_type_id,first_name, last_name, email, password)
                     VALUES
-                    (%(first_name)s,%(last_name)s,%(email)s,%(password)s,%(phone)s,%(address)s,%(CIN)s,%(password)s,%(date_birth)s,%(blood_type_id)s);"""
+                    (1,%(first_name)s,%(last_name)s,%(email)s,%(password)s);"""
         print("***********not*********")
         return MySQLConnection(DATABASE_NAME).query_db(query, data_dict)
 
     @classmethod
     def update(cls, data_dict):
         query = """UPDATE users SET
-                blood_type_id=%(blood_type_id)s, 
+                blood_type_id=%(blood_type_id)s,
+                gender=%(gender)s,
+                address=%(address)s,
+                date_birth=%(date_birth)s,
                 phone=%(phone)s, 
                 CIN=%(CIN)s
                 WHERE id=%(id)s"""
@@ -49,7 +53,6 @@ class User:
         result = MySQLConnection(DATABASE_NAME).query_db(query, data_dict)
         return cls(result[0])
 
-    @classmethod
     def get_users_with_blood_type(cls):
         query = """
         SELECT * FROM USERS 
