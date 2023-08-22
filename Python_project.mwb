@@ -1,2 +1,0 @@
-SELECT * FROM blood_app_db.blood_type;
-insert INTO blood_type (type) values ('A+'),('A-'), ('B+'), ('B-'),('AB+'),('AB-'),('O+'),('O-');      
