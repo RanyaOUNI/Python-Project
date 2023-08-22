@@ -39,7 +39,7 @@
 
             <div class="input_field">
                 <label for="">Blood Type :</label>
-                <select class="blood_type" name="type_blood" required>
+                <select class="blood_type" name="blood_type_id" required>
                     {%for blood in all_blood%}
                     <option value="{{blood.id}}">{{blood.type}}</option>
                     {%endfor%}                                           
