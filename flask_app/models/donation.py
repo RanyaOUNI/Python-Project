@@ -1,3 +1,4 @@
+from flask_app.models.hospital import Hospital
 from flask_app.config.mysqlconnection import MySQLConnection
 from flask import flash
 from flask_app import DATABASE_NAME
@@ -12,21 +13,40 @@ class Donation:
         self.demand_id = data_dict['demand_id']
         self.hospital_id = data_dict['hospital_id']
         self.user_id = data_dict['user_id']
-        self.user_blood_type_id = data_dict['user_blood_type_id']
         self.user_donations_id = data_dict['created_at']
         self.created_at = data_dict['created_at']
-        self.updated_at = data_dict['updated_at']
+        self.updated_At = data_dict['updated_At']
+        self.hospital = {}
+        self.demand={}
+        self.donation= {}
         
+
 
     @classmethod 
     def create(cls , data_dict):
         query = """
-            INSERT INTO trips (is_confirmed,user_id,user_blood_type_id) VALUES (%(destination)s,%(start_date)s,%(end_date)s,%(plan)s);
+            INSERT INTO donations (user_id,demand_id,hospital_id) VALUES (%(user_id)s,%(demand_id)s,%(hospital_id)s);
             """
-        return MySQLConnection(DATABASE_NAME).query_db(query,data_dict)
+        
+        results =  MySQLConnection(DATABASE_NAME).query_db(query,data_dict)
+        print (results)
+        return results
     
     @classmethod
     def get_all(cls):
         query="""
-        SELECT * FROM trips;
+        SELECT * FROM donations  JOIN blood_type ;
 """ 
+        result = MySQLConnection(DATABASE_NAME).query_db(query)
+        all_donations = []
+        for row in result:
+            donation = cls(row)
+            all_donations.append(donation)
+        return all_donations
+
+    @classmethod 
+    def create(cls , data_dict):
+        query = """
+            INSERT INTO donations (demand_id,hospital_id,user_id,is_confirmed) VALUES (%(demand_id)s,%(hospital_id)s,%(user_id)s,%(is_confirmed)s);
+            """
+        return MySQLConnection(DATABASE_NAME).query_db(query,data_dict)

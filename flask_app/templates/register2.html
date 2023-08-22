@@ -18,7 +18,7 @@
         <div class="title">
             Complete Your Registration
         </div>
-        <form>
+        <form action="/register"method="post">
             <div class="input_field">
                 <label for="gender">Gender :</label>
                     <div class="custom_select">
@@ -39,15 +39,9 @@
             <div class="input_field">
                 <label for="">Blood Type :</label>
                 <select class="blood_type" required>
-                    <option value="">Select</option>
-                    <option value="1">O+</option>
-                    <option value="2">O-</option>
-                    <option value="3">A+</option>                                    
-                    <option value="4">A-</option>                                    
-                    <option value="5">B+</option>                                    
-                    <option value="6">B-</option>
-                    <option value="7">AB+</option>                                    
-                    <option value="8">AB-</option>                                                    
+                    {%for blood in all_blood%}
+                    <option value="">{{blood.blood_type.type}}</option>
+                    {%endfor%}                                           
                 </select>
             </div>
 
