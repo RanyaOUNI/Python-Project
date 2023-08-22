@@ -13,16 +13,20 @@
   <div class="logo">
     <a href="/"><img src="{{url_for('static',filename='/img/BloodHub.png')}}"></a>
   </div>
+  
   <div class="main_div">
-    <div class="title">Login</div>      
-    <form action="#">
+    <div class="title">Login</div>    
+    {% for message in get_flashed_messages(category_filter=["login"]) %}
+  <p class="h6 text-danger">{{message}}</p>
+  {% endfor %}  
+    <form action="/login" method="post">
       <div class="input_box">
-        <input type="text" placeholder="Email" required />
+        <input type="text" placeholder="Email" required name="email"/>
         <div class="icon"><i class="bx bxs-envelope"></i></div>
       </div>
 
       <div class="input_box">
-        <input type="password" placeholder="Password" required />
+        <input type="password" placeholder="Password" required name="password"/>
         <div class="icon"><i class="bx bxs-lock-alt"></i></div>
       </div>
 

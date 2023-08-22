@@ -26,6 +26,7 @@
              
             </div>
           </nav> 
+
     <div class="container">
         <section class="ftco-section">
                 <div class="row justify-content-center">
@@ -34,8 +35,10 @@
                         <div>
                             <h1 class="text-danger">welcome</h1>
                         </div>
+                        <div class="">
                         <h2 class="heading">All Demands</h2>
-                        
+                        <button><a href="/blood_request" class="btn btn-danger " >Create Demand</a></button>
+                      </div>
                     </div>
                 </div>
                 <div class="row">
@@ -43,34 +46,36 @@
                         <div>
                             <table class="table table-bordered">
                               <thead >
+                            
                                 <tr class="table-danger">
                                   <th scope="col">Blood Type</th>
-                                  <th scope="col">Place</th>
+                                  <th scope="col">Hospital</th>
                                   <th scope="col">Date of Demand</th>
                                   <th scope="col">Action</th>
                                   <th scope="col">Validation</th>
-                                  <th scope="col">State</th>
+                                  <th scope="col">Number of Donators</th>
                                 </tr>
                               </thead>
                               <tbody class="table-warning">
-                                
-                                   <tr>
-                                  <th scope="row">o+</th>
-                                  <td>Rabta </td>
-                                  <td></td>
-                                  <td><a href="#" class="btn btn-success">Donate</a></td>
-                                  <td></td>
-                                  <td></td>
-                                </tr>
-    
-                                <tr>
-                                  <th scope="row">A+</th>
-                                  <td>El hrouk</td>
-                                  <td></td>
-                                  <td><a href="#" class="btn btn-success">Donate</a></td>
-                                  <td></td>
-                                  <td></td>
-                                </tr>
+                              {%for demand in every_demand%}
+                              <tr>
+                                <td>{{demand.blood_type.type}}</td>
+                                <td>{{demand.hospital.name}}</td>
+                                <td>{{demand.created_at}}</td>
+                                <td><button class="btn btn-success ">Donate</button></td>
+
+                                <td>
+                                  {%if demand.donation.is_confirmed == 1%}
+                                  {{"CONFIRMED"}}
+                                  {%else%}
+                                  {{"NOT CONFIRMED"}}
+                                  {%endif%}
+                                </td>
+                                <td>0</td>
+
+                              </tr>
+                              {%endfor%}
+                              
                               </tbody> 
                             </table>
                         </div>
