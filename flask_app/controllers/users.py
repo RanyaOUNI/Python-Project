@@ -2,6 +2,8 @@ from flask_app import app
 from flask import render_template , request, redirect,session, flash
 from flask_app.models.donation import Donation
 from flask_app.models.user import User
+from flask_app.models.hospital import Hospital
+from flask_app.models.blood_type import Blood_type
 
 from flask_bcrypt import Bcrypt
 from flask_app.models.demand import Demand   
@@ -32,12 +34,16 @@ def login():
     flash("Wrong email !!!!","login")
     return redirect('/login')
 
-@app.route('/user')
-def dashboard():
-    if 'user_id' not in session:
-        return redirect('/home.html')
-    logged_user = User.get_by_id({'id':session['user_id']})
-    return render_template("login.html",user=logged_user)
+# @app.route('/user')
+# def dashboard():
+    # if 'user_id' not in session:
+    #     return redirect('/home.html')
+    # logged_user = User.get_by_id({'id':session['user_id']})
+#     return render_template("login.html",user=logged_user)
+
+
+
+
 
 
 
@@ -45,23 +51,23 @@ def dashboard():
 @app.route('/register', methods=["POST"])
 def register():
     if User.validate_register(request.form):
-         pw_hash = bcrypt.generate_password_hash(request.form['password'])
-         print("Password : ", request.form['password'])
-         print("Hashed Password : ", pw_hash)
-         data_dict = {
-             **request.form,
-             'password':pw_hash
-         }
-         user_id = User.create(data_dict)
-         session['user_id'] = user_id
-         return redirect('/register2')
+        pw_hash = bcrypt.generate_password_hash(request.form['password'])
+        print("Password : ", request.form['password'])
+        print("Hashed Password : ", pw_hash)
+        data_dict = {
+            **request.form,
+            'password':pw_hash
+        }
+        user_id = User.create(data_dict)
+        session['user_id'] = user_id
+        return redirect('/register2')
     return redirect('/register')
 
 
 
-# @app.route('/register_page')
-# def form_register():
-#     return render_template("register.html")
+@app.route('/register_page')
+def form():
+    return render_template("register.html")
 
 
 
@@ -69,12 +75,11 @@ def register():
 def user():
     every_demand = Demand.get_all_demands_with_hospitals()
     print(every_demand[0].hospital)
-    if 'user_id' not in session:
-        return redirect('/home.html')
-    logged_user = User.get_by_id({'id':session['user_id']})
+    Hospital.get_hospital_with_donations()
+
     return render_template("user.html", every_demand = every_demand)
 
-@app.route('/register2')
+@app.route('/register2' ,methods =['POST'])
 def register2():
     all_blood = Demand.get_all_demands_with_hospitals()
     return render_template("register2.html",all_blood = all_blood)
@@ -94,7 +99,8 @@ def my_account():
 
 @app.route('/hospital_dashboard')
 def hospital_dashboard():
-    return render_template("Hospital.html")
+    all = Demand.get_all_demands_with_hospitals()
+    return render_template("Hospital.html",all=all)
 
 
 @app.route('/blood_request')

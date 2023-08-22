@@ -23,6 +23,7 @@ class Demand:
         self.hospital = {}
         self.blood_type = {}
         self.donation= {}
+        self.user ={}
 
 
     @classmethod
@@ -101,7 +102,8 @@ class Demand:
 select * from demands
 left join hospitals on hospitals.id = demands.hospital_id
 left join blood_type on blood_type.id = demands.blood_type_id 
-left join donations on donations.id = demands.id;
+left join donations on donations.id = demands.id
+left join users on users.id = demands.blood_type_id;
 """     
             result = MySQLConnection(DATABASE_NAME).query_db(query)
             print(result)
@@ -130,6 +132,7 @@ left join donations on donations.id = demands.id;
                     'created_at':row['created_at'],
                     'updated_At':row['updated_At'],
                 }
+                
                 demand.donation = Donation(donation)
                 demand.hospital = Hospital(hospital)
                 demand.blood_type = Blood_type(blood_type)
@@ -144,3 +147,5 @@ left join donations on donations.id = demands.id;
         """
         result = MySQLConnection(DATABASE_NAME).query_db(query,data_dict)
         return result
+    
+    

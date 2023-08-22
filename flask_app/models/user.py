@@ -34,12 +34,24 @@ class User :
         print("***********not*********")
         return MySQLConnection(DATABASE_NAME).query_db(query, data_dict)
     
-    @classmethod
-    def get_by_id(cls, data_dict):
-        query = """SELECT * FROM users WHERE id =%(id)s;"""
-        result = MySQLConnection(DATABASE_NAME).query_db(query, data_dict)
-        return cls(result[0])
+    # @classmethod
+    # def get_by_id(cls, data_dict):
+    #     query = """SELECT * FROM users WHERE id =%(id)s;"""
+    #     result = MySQLConnection(DATABASE_NAME).query_db(query, data_dict)
+    #     return cls(result[0])
     
+
+    @classmethod
+    def get_users_with_blood_type(cls):
+        query ="""
+        SELECT * FROM USERS 
+        LEFT JOIN blood_type 
+        ON users.blood_type_id = blood_type.id ;
+"""
+        result = MySQLConnection(DATABASE_NAME).query_db(query)
+        return result
+        
+
 
     @classmethod
     def get_by_email(cls, data_dict):
