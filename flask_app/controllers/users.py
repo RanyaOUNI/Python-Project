@@ -12,6 +12,11 @@ bcrypt = Bcrypt(app)
 def index():
     return render_template("home.html")
 
+@app.route('/register2')
+def index2():
+    return render_template("register2.html")
+
+
 @app.route('/login')
 def form_register():
     return render_template("login.html")
