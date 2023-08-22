@@ -23,6 +23,7 @@ class Demand:
         self.hospital = {}
         self.blood_type = {}
         self.donation= {}
+        self.user ={}
 
 
     @classmethod
@@ -146,3 +147,5 @@ class Demand:
         """
         result = MySQLConnection(DATABASE_NAME).query_db(query,data_dict)
         return result
+    
+    

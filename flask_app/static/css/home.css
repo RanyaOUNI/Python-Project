@@ -1,9 +1,10 @@
-@import url(https://https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap);
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
 /* ================================ Basic CSS =============================== */
 body {
   margin: 0px;
   padding: 0px;
-  font-family: 'Merriweather',serif; }
+  font-family: 'Poppins',serif; }
 
 * {
   margin: 0px;
@@ -11,7 +12,24 @@ body {
   box-sizing: border-box; }
 
 img {
-  max-width: 100%; }
+  max-width: 100%;
+  background: transparent; 
+}
+
+.logo{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.logo h4{
+  font-family: 'Poppins',sans-serif;
+  color: #ba0e0e;
+}
+
+.logo i{
+  size: 10px;
+  color: #ba0e0e;
+}
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0px; }
@@ -47,16 +65,16 @@ a:hover {
 .my-nav {
   position: fixed;
   width: 100%;
-  padding: 10px 0px;
+  height: 80px;
+  border-bottom: 2px solid #ba0e0e;
+  /* padding: 10px 0px; */
   top: 0;
   left: 0;
   right: 0;
   z-index: 999; 
-  background: rgba( 41, 41, 41, 0.25 );
-box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-backdrop-filter: blur( 4px );
--webkit-backdrop-filter: blur( 4px );
-border-radius: 10px;
+  background: #fff;
+/* backdrop-filter: blur( 4px );
+-webkit-backdrop-filter: blur( 4px ); */
 }
   .my-nav .nav-items {
     display: flex;
@@ -111,12 +129,12 @@ border-radius: 10px;
             .my-nav .nav-items .menu-items .menu ul li {
               padding: 10px 2px; } }
           .my-nav .nav-items .menu-items .menu ul li a {
-            color: #fff;
+            color: #101010;
             padding: 10px;
             text-transform: uppercase;
             transition: 0.5s; }
             .my-nav .nav-items .menu-items .menu ul li a:hover {
-              color: #dc000e; }
+              color: #ba0e0e; }
             @media screen and (max-width: 767.98px) {
               .my-nav .nav-items .menu-items .menu ul li a {
                 padding: 10px 0px; } }
