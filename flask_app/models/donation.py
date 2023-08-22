@@ -16,10 +16,6 @@ class Donation:
         self.user_donations_id = data_dict['created_at']
         self.created_at = data_dict['created_at']
         self.updated_At = data_dict['updated_At']
-        self.hospital = {}
-        self.demand={}
-        self.donation= {}
-        
 
 
     @classmethod 

@@ -42,12 +42,14 @@
                 </tr>
             </thead>
             <tbody>
+                {%for hospital in all%}
                 <tr>
-                    <td>Sergio Ramos</td>
+                    <td>{{hospital.}}</td>
                     <td>Matilda Gomez</td>
                     <td>25314665</td>
                     <td>O+</td>
                     <td>
+                {%endfor%}
                         <a href="" data-bs-toggle="modal"
                         data-bs-target="#exampleModal">1</a>
 
