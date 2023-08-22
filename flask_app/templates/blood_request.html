@@ -37,7 +37,7 @@
                                 <div class="form-group mb-3">
                                     
                                     <label for="">Gender :</label>
-                                    <select name="blood_type" id=""class="form-control"  aria-describedby="basic-addon1" name="gender">
+                                    <select name="gender" id=""class="form-control"  aria-describedby="basic-addon1" >
                                         <option value="">Male</option>
                                         <option value="">Female</option>
 
@@ -53,9 +53,9 @@
                                 <div class="form-group mb-3">
                                     
                                     <label for="">Blood Type :</label>
-                                    <select name="blood_type" id=""class="form-control"  aria-describedby="basic-addon1" name="blood_type_id">
+                                    <select name="blood_type_id" id=""class="form-control"  aria-describedby="basic-addon1" >
                                         {%for option in every %}
-                                        <option value="">{{option.blood_type.type}}</option>
+                                        <option value="">{{option.blood_type.id}}</option>
                                         {%endfor%}
                                     </select>
                                     
@@ -71,20 +71,20 @@
                                     </select>
                                     
                                 </div>
-                            </form>
+                            
                                 
                                 <div class="input-group center">
                                     <button class="btn btn-danger btn-round">Request</button>
                                 </div> 
-                                
+                            
+                            </form>
                             
                             </div>
                             
                             
                             
                             
-                           
-
+                        
 
                         </div>
                         

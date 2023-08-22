@@ -1,11 +1,10 @@
+<<<<<<< HEAD
+=======
 from flask_app import app
 from flask import render_template , request, redirect,session, flash
-from flask_app.models.donation import Donation
 from flask_app.models.user import User
-from flask_app.models.blood_type import Blood_type
-from flask_bcrypt import Bcrypt
-from flask_app.models.demand import Demand   
 
+from flask_bcrypt import Bcrypt        
 bcrypt = Bcrypt(app)
 
 @app.route('/')
@@ -18,11 +17,6 @@ def index2():
 
 
 @app.route('/login')
-def form_register():
-    return render_template("login.html")
-
-
-@app.route('/login', methods = ['POST'])
 def login():
     print(request.form)
     user_from_db = User.get_by_email({'email':request.form['email']})
@@ -31,24 +25,23 @@ def login():
         if not bcrypt.check_password_hash(user_from_db.password, request.form['password']):
             # if we get False after checking the password
             flash("Wrong Password !!!","login")
-            return redirect('/user.html')
+            return redirect('/home.html')
         session['user_id'] = user_from_db.id
-        return redirect('/user.html')
+        return redirect('/login.html')
     flash("Wrong email !!!!","login")
-    return redirect('/login')
+    return redirect('/home.html')
 
-@app.route('/user')
+
+@app.route('/user_dashboard')
 def dashboard():
     if 'user_id' not in session:
         return redirect('/home.html')
     logged_user = User.get_by_id({'id':session['user_id']})
-    return render_template("login.html",user=logged_user)
-
-
-
+    return render_template("login.html",logged_user=user)
 
 @app.route('/register', methods=["POST"])
 def register():
+    print('*****REG************',request.form)
     if User.validate_register(request.form):
          pw_hash = bcrypt.generate_password_hash(request.form['password'])
          print("Password : ", request.form['password'])
@@ -57,15 +50,10 @@ def register():
              **request.form,
              'password':pw_hash
          }
-         session['pw_hash']=pw_hash
-         session['first_name']=request.form['first_name']
-         session['last_name']=request.form['last_name']
-         session['email']=request.form['email']
-        #  session['user_id'] = user_id
+         user_id = User.create(data_dict)
+         session['user_id'] = user_id
          return redirect('/register2')
     return redirect('/register')
-
-
 
 @app.route('/user')
 def user():
@@ -111,18 +99,9 @@ def my_account():
 def hospital_dashboard():
     return render_template("Hospital.html")
 
+>>>>>>> 6c48d587cf627c2fd059fc36c635e0083d355370
 
 @app.route('/blood_request')
 def blood_request():
     every = Demand.get_all_demands_with_hospitals()
     return render_template("blood_request.html",every = every)
-
-
-@app.route('/register')
-def form():
-    return render_template("register.html")
-
-
-
-
-

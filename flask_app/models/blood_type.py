@@ -15,7 +15,7 @@ class Blood_type:
     def __init__(self, data_dict):
         self.id = data_dict['id']
         self.type = data_dict['type']
-
+	
 
     @classmethod
     def get_all():
