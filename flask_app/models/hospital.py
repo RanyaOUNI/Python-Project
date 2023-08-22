@@ -27,6 +27,10 @@ class Hospital:
         print("******HOSPITALS_WITH_DONA*****",result)
         return []
 
+    @classmethod
+    def create(cls, data_dict):
+        query = """INSERT INTO hospitals (name, email, password) VALUES (%(username)s,%(email)s,%(password)s);"""
+        return connectToMySQL(DATABASE_NAME).query_db(query, data_dict)
 
 
 
