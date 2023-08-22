@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
 from flask_app import app
 from flask import render_template , request, redirect,session, flash
 from flask_app.models.user import User
@@ -99,7 +98,6 @@ def my_account():
 def hospital_dashboard():
     return render_template("Hospital.html")
 
->>>>>>> 6c48d587cf627c2fd059fc36c635e0083d355370
 
 @app.route('/blood_request')
 def blood_request():
