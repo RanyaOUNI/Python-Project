@@ -24,7 +24,11 @@ h2{
 .navbar {
     width: 100%;
     background-color:crimson;
+    height: 70px;
    
+}
+.navbar img {
+    height:50px ;
 }
 
 .button{

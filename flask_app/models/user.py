@@ -1,6 +1,7 @@
 from flask_app import DATABASE_NAME
 from flask_app.config.mysqlconnection import MySQLConnection
 from flask import flash
+from flask_app.models.blood_type import Blood_type
 
 
 import re
@@ -14,6 +15,7 @@ class User:
         self.id = data_dict["id"]
         self.blood_type_id = ["blood_type_id"]
         self.first_name = data_dict["first_name"]
+        self.gender = data_dict["gender"]
         self.last_name = data_dict["last_name"]
         self.email = data_dict["email"]
         self.password = data_dict["password"]
@@ -23,6 +25,7 @@ class User:
         self.created_at = data_dict["created_at"]
         self.updated_at = data_dict["updated_at"]
         self.CIN = data_dict["CIN"]
+        self.blood_type = {}
 
     @classmethod
     def create(cls, data_dict):
@@ -41,26 +44,50 @@ class User:
                 address=%(address)s,
                 date_birth=%(date_birth)s,
                 phone=%(phone)s, 
-                CIN=%(CIN)s
-                WHERE id=%(id)s"""
-
-        print("***********not*********")
-        return MySQLConnection(DATABASE_NAME).query_db(query, data_dict)
+                CIN=%(CIN)s,
+                role=%(role)s
+                WHERE id=%(id)s;"""
+        result = MySQLConnection(DATABASE_NAME).query_db(query, data_dict)
+        print("**USER UPDATE**", result)
+        return result
 
     @classmethod
     def get_by_id(cls, data_dict):
         query = """SELECT * FROM users WHERE id =%(id)s;"""
         result = MySQLConnection(DATABASE_NAME).query_db(query, data_dict)
+        print("****************************",result[0])
         return cls(result[0])
-
-    def get_users_with_blood_type(cls):
+    
+    @classmethod
+    def get_all_users(cls):
+        query="""
+        SELECT * FROM users;"""
+        result = MySQLConnection(DATABASE_NAME).query_db(query)
+        print(result)
+        all_users = []
+        for row in result:
+            use = cls(row)
+            all_users.append(use)
+        return all_users
+    
+    @classmethod
+    def get_users_with_blood_type(cls, data):
         query = """
         SELECT * FROM USERS 
         LEFT JOIN blood_type 
-        ON users.blood_type_id = blood_type.id ;
-"""
-        result = MySQLConnection(DATABASE_NAME).query_db(query)
-        return result
+        ON users.blood_type_id = blood_type.id
+        where USERS.id= %(id)s;
+        """
+        result = MySQLConnection(DATABASE_NAME).query_db(query, data)
+        user = cls(result[0])
+        data = {
+            'id': result[0]['blood_type.id'],
+            'type': result[0]['type']
+        }
+        user.blood_type = Blood_type(data)
+        print('$$$$',result)
+        return user
+
 
     @classmethod
     def get_by_email(cls, data_dict):
@@ -69,6 +96,11 @@ class User:
         if result:
             return cls(result[0])
         return False
+    
+    @classmethod
+    def destroy_user(cls, data_dict):
+        query ="""DELETE FROM users WHERE id= %(id)s;"""
+        return MySQLConnection(DATABASE_NAME).query_db(query,data_dict)
 
     @staticmethod
     def validate_register(data_dict):

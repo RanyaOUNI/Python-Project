@@ -1,6 +1,7 @@
 from flask_app import app
 from flask import render_template , request, redirect,session, flash
 from flask_app.models.demand import Demand
+from flask import flash
 
 
 
@@ -17,4 +18,4 @@ def create_demand():
     }
     Demand.create_demand(data)
     
-    return redirect('/dashbord')
+    return redirect('/user')

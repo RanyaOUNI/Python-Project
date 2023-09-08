@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
-
 /* ================================ Basic CSS =============================== */
 body {
   margin: 0px;
@@ -16,26 +15,12 @@ img {
   background: transparent; 
 }
 
-.logo{
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-}
-.logo h4{
-  font-family: 'Poppins',sans-serif;
-  color: #ba0e0e;
-}
-
-.logo i{
-  size: 10px;
-  color: #ba0e0e;
-}
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0px; }
 
 ul, ol {
-  margin: 0px;
+  margin: auto;
   padding: 0px; }
 
 li {
@@ -67,22 +52,22 @@ a:hover {
   width: 100%;
   height: 80px;
   border-bottom: 2px solid #ba0e0e;
-  /* padding: 10px 0px; */
   top: 0;
   left: 0;
   right: 0;
   z-index: 999; 
   background: #fff;
-/* backdrop-filter: blur( 4px );
--webkit-backdrop-filter: blur( 4px ); */
+
 }
-  .my-nav .nav-items {
-    display: flex;
-    flex-wrap: wrap;
-    flex: 1 1 100%;
-    max-width: 100%;
-    width: 100%; }
-    @media (max-width: 768px) {
+ 
+.my-nav .nav-items {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1 1 100%;
+  max-width: 100%;
+  width: 100%; }
+  
+  @media (max-width: 768px) {
       .my-nav .nav-items {
         align-items: center; } }
     .my-nav .nav-items .logo {
@@ -190,12 +175,14 @@ a:hover {
   position: relative;
   overflow: hidden;
   z-index: 9; }
+
   /* .slider .carousel-inner .carousel-item::before {
     position: absolute;
     content: "";
-     background: rgba(2, 2, 2, 0.8); 
+    background: rgba(2, 2, 2, 0.8); 
     height: 100%;
     width: 100%; } */
+
   .slider .carousel-inner .carousel-item .carousel-caption {
     top: 35%;
     display: block;
@@ -225,6 +212,7 @@ a:hover {
       line-height: 35px; }
     .slider .carousel-inner .carousel-item .carousel-caption .button-01 {
       display: inline-block;
+      justify-content: space-between;
       margin: 20px 0px;
       text-align: center;
       position: relative; }
@@ -232,16 +220,17 @@ a:hover {
         display: inline-block;
         padding: 8px 10px;
         border: solid 1px #fff; }
-        .slider .carousel-inner .carousel-item .carousel-caption .button-01 ul li:nth-child(1) {
-          margin-right: 20px;
-          background: #dc000e;
-          border: 1px solid #dc000e;
-          color: #002147; }
+        .slider .carousel-inner .carousel-item .carousel-caption .button-01 .btn{
+          background-color: #ba0e0e;
+          color: #fff; }
+          
         .slider .carousel-inner .carousel-item .carousel-caption .button-01 ul li a {
           font-size: 0.9rem;
           color: #fff;
           text-transform: uppercase;
           letter-spacing: 0.4px; }
+
+
 
 /* ================================ Section CSS =============================== */
 .bg-01 {
@@ -648,8 +637,9 @@ a:hover {
       min-height: 45px;
       border-radius: 4px;
       margin: 10px 0px; }
+
       /* ================================ Process =============================== */
-      /* :root{
+      :root{
         --background-dark: #2d3548;
         --text-light: rgba(255,255,255,0.6);
         --text-lighter: rgba(255,255,255,0.9);
@@ -661,16 +651,22 @@ a:hover {
         --width-container: 1200px;
       }
       
+      #process h2{
+        margin-left: 600px;
+        color: rgb(205,40,25);
+        font-weight: 300px;
+      }
       *{
         border: 0;
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-      } */
-      
-     
+      }
+
       .hero-section{
+
         align-items: center;
+        margin-right: 200px;
         background-image: linear-gradient(15deg, white 150%);
         min-height: 100%;
         min-width: 100%;
@@ -802,24 +798,33 @@ a:hover {
       .about-us {
         padding: 50px;
         background-color: #FFF; }
-        @media screen and (max-width: 940px) {
-          .about-us {
+        @media screen and (max-width: 940px){
+          .about-us {            
             padding: 30px 10px; } }
-        .about-us .text p {
-          font-weight: 600;
-          /* font-size: .85rem; */
-          color: #000;
-          margin-top: 80px;
-          text-align: justify; }
+          .about-us h2{
+            /* text-align: center; */
+            margin-top: 30px;
+            margin-left: 400px;
+            color: rgb(205,40,25);
+            font-weight: 300px;
+          }
+
+          .about-us .text p {
+            color: #000;
+            font-weight: 500;
+            text-align: center;
+            line-height: 3em;
+          }
+
         .about-us .image img {
-          width: 80%;
-          margin-top: 30px; }
+          width: 100%;
+          margin:auto;
+        }
 
 /* ================================ Footer CSS =============================== */
 footer {
-  padding: 50px 0px 0px;
   position: relative;
-  background-image: url('../img/homepics/background/1.jpg');
+  background-color: #373738;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -873,31 +878,3 @@ footer {
         font-weight: 600;
         text-transform: uppercase;
         padding-left: 15px; }
-
-/*# sourceMappingURL=style.css.map */
-
-
-h1 { font-family: serif; color: #377ba8; margin: 1rem 0; }
-a { color: #377ba8; }
-hr { border: none; border-top: 1px solid lightgray; }
-nav { background: lightgray; display: flex; align-items: center; padding: 0 0.5rem; }
-nav h1 { flex: auto; margin: 0; }
-nav h1 a { text-decoration: none; padding: 0.25rem 0.5rem; }
-nav ul  { display: flex; list-style: none; margin: 0; padding: 0; }
-nav ul li a, nav ul li span, header .action { display: block; padding: 0.5rem; }
-.content { padding: 0 1rem 1rem; }
-.content > header { border-bottom: 1px solid lightgray; display: flex; align-items: flex-end; }
-.content > header h1 { flex: auto; margin: 1rem 0 0.25rem 0; }
-.flash { margin: 1em 0; padding: 1em; background: #cae6f6; border: 1px solid #377ba8; }
-.post > header { display: flex; align-items: flex-end; font-size: 0.85em; }
-.post > header > div:first-of-type { flex: auto; }
-.post > header h1 { font-size: 1.5em; margin-bottom: 0; }
-.post .about { color: slategray; font-style: italic; }
-.post .body { white-space: pre-line; }
-.content:last-child { margin-bottom: 0; }
-.content form { margin: 1em 0; display: flex; flex-direction: column; }
-.content label { font-weight: bold; margin-bottom: 0.5em; }
-.content input, .content textarea { margin-bottom: 1em; }
-.content textarea { min-height: 12em; resize: vertical; }
-input.danger { color: #cc2f2e; }
-input[type=submit] { align-self: start; min-width: 10em; }

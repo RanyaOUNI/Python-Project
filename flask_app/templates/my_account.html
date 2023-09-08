@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
@@ -8,79 +9,86 @@
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <title>BloodHub</title>
 </head>
+
 <body>
     <div class="logo">
         <img src="{{url_for('static',filename='/img/BloodHub.png')}}" alt="">
     </div>
-    
+
     <div class="main_div">
-        <div class="title">My Account</div>      
+        <div class="title">My Account</div>
         <form action="#">
 
             <div class="input_box">
                 <label for="first_name">First Name</label>
-                <input type="text" placeholder="Sergio"/>
+                <input type="text" placeholder="{{logged_user.first_name}}" />
                 <div class="icon">
-                    <a href="" data-bs-toggle="modal"
-                        data-bs-target="#exampleModal-f"><i class='bx bxs-edit' ></i></a>
-                    <div class="modal fade" id="exampleModal-f" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal-f"><i class='bx bxs-edit'></i></a>
+                    <div class="modal fade" id="exampleModal-f" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h1 class="modal-title fs-5 text-danger " id="exampleModalLabel">Change First Name</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    <h1 class="modal-title fs-5 text-danger " id="exampleModalLabel">Change First Name
+                                    </h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
                                     <label for="first_name">First Name</label>
                                     <input type="text" id="fs">
                                 </div>
                                 <div class="modal-footer">
-                                        <button type="button" class="btn btn-danger ">Confirm</button>
-                                </div>                                                            
+                                    <button type="button" class="btn btn-danger ">Confirm</button>
+                                </div>
                             </div>
                         </div>
-                    </div>        
+                    </div>
                 </div>
             </div>
 
             <div class="input_box">
                 <label for="last_name">Last Name</label>
-                <input type="text" placeholder="Ramos"/>
+                <input type="text" placeholder="{{logged_user.last_name}}" />
                 <div class="icon">
-                    <a href="" data-bs-toggle="modal"
-                        data-bs-target="#exampleModal-l"><i class='bx bxs-edit' ></i></a>
-                    <div class="modal fade" id="exampleModal-l" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal-l"><i class='bx bxs-edit'></i></a>
+                    <div class="modal fade" id="exampleModal-l" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h1 class="modal-title fs-5 text-danger " id="exampleModalLabel">Change Last Name</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    <h1 class="modal-title fs-5 text-danger " id="exampleModalLabel">Change Last Name
+                                    </h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
                                     <label for="last_name">Last Name</label>
                                     <input type="text" id="fs">
                                 </div>
                                 <div class="modal-footer">
-                                        <button type="button" class="btn btn-danger ">Confirm</button>
-                                </div>                                                            
+                                    <button type="button" class="btn btn-danger ">Confirm</button>
+                                </div>
                             </div>
                         </div>
-                    </div>        
-                </div>           
+                    </div>
+                </div>
             </div>
 
             <div class="input_box">
                 <label for="">Date Of Birth</label>
-                <input type="date" placeholder="27/03/1986"/>
+                <input type="text" placeholder="{{logged_user.date_birth}}" />
                 <div class="icon">
-                    <a href="" data-bs-toggle="modal"
-                        data-bs-target="#exampleModal-d"><i class='bx bxs-edit' ></i></a>
-                    <div class="modal fade" id="exampleModal-d" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal-d"><i class='bx bxs-edit'></i></a>
+                    <div class="modal fade" id="exampleModal-d" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h1 class="modal-title fs-5 text-danger " id="exampleModalLabel">Change Date Of Birth</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    <h1 class="modal-title fs-5 text-danger " id="exampleModalLabel">Change Date Of
+                                        Birth</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
                                     <label for="last_name">Date Of Birth</label>
@@ -88,30 +96,31 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-danger ">Confirm</button>
-                                </div>                                                            
+                                </div>
                             </div>
                         </div>
-                    </div>        
-                </div>                       
+                    </div>
+                </div>
             </div>
 
             <div class="input_box">
                 <label for="gender">Gender</label>
-                <input type="text" placeholder="Male"/>
+                <input type="text" placeholder="{{logged_user.gender}}" />
                 <div class="icon">
-                    <a href="" data-bs-toggle="modal"
-                        data-bs-target="#exampleModal-g"><i class='bx bxs-edit' ></i></a>
-                    <div class="modal fade" id="exampleModal-g" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal-g"><i class='bx bxs-edit'></i></a>
+                    <div class="modal fade" id="exampleModal-g" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h1 class="modal-title fs-5 text-danger " id="exampleModalLabel">Change Gender</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
                                     <label for="gender">Gender :</label>
                                     <div class="custom_select">
-                                        <select >
+                                        <select>
                                             <option value="">Select</option>
                                             <option value="male">Male</option>
                                             <option value="female">Female</option>
@@ -121,152 +130,129 @@
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-danger ">Confirm</button>
                                 </div>
-                            </div>                                                            
+                            </div>
                         </div>
-                    </div>                
+                    </div>
                 </div>
             </div>
 
             <div class="input_box">
                 <label for="blood_type">Blood Type</label>
-                <input type="text" placeholder="O+"/>
+                <input type="text" placeholder="{{blood.blood_type.type}}" />
                 <div class="icon">
-                    <a href="" data-bs-toggle="modal"
-                        data-bs-target="#exampleModal-b"><i class='bx bxs-edit' ></i></a>
-                    <div class="modal fade" id="exampleModal-b" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal-b"><i class='bx bxs-edit'></i></a>
+                    <div class="modal fade" id="exampleModal-b" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h1 class="modal-title fs-5 text-danger " id="exampleModalLabel">Change Blood Type</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    <h1 class="modal-title fs-5 text-danger " id="exampleModalLabel">Change Blood Type
+                                    </h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
                                     <label for="gender">Blood Type :</label>
                                     <div class="custom_select">
-                                        <select >
-                                            <option value="">Select</option>
-                                            <option value="1">O+</option>
-                                            <option value="2">O-</option>
-                                            <option value="3">A+</option>                                    
-                                            <option value="4">A-</option>                                    
-                                            <option value="5">B+</option>                                    
-                                            <option value="6">B-</option>
-                                            <option value="7">AB+</option>                                    
-                                            <option value="8">AB-</option>     
+                                        <select>
+                                            {%for all in every %}
+                                            <option value="{{all.id}}">{{all.type}}</option>
+                                            {%endfor%}
                                         </select>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-danger ">Confirm</button>
                                 </div>
-                            </div> 
-                        </div>                                                           
+                            </div>
+                        </div>
                     </div>
-                
+
                 </div>
             </div>
 
             <div class="input_box">
                 <label for="national_id_card">National ID Card</label>
-                <input type="text" placeholder="12369457"/>
+                <input type="text" placeholder="{{logged_user.CIN}}" />
                 <div class="icon">
-                    <a href="" data-bs-toggle="modal"
-                    data-bs-target="#exampleModal-n"><i class='bx bxs-edit' ></i></a>
-                    <div class="modal fade" id="exampleModal-n" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal-n"><i class='bx bxs-edit'></i></a>
+                    <div class="modal fade" id="exampleModal-n" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h1 class="modal-title fs-5 text-danger " id="exampleModalLabel">Change National ID Card</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    <h1 class="modal-title fs-5 text-danger " id="exampleModalLabel">Change National ID
+                                        Card</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
                                     <label for="last_name">Change National ID Card</label>
                                     <input type="text" id="fs">
                                 </div>
                                 <div class="modal-footer">
-                                        <button type="button" class="btn btn-danger ">Confirm</button>
-                                </div>                                                            
+                                    <button type="button" class="btn btn-danger ">Confirm</button>
+                                </div>
                             </div>
                         </div>
-                    </div>                        
+                    </div>
                 </div>
             </div>
 
             <div class="input_box">
                 <label for="phone_nuber">Phone Number</label>
-                <input type="text" placeholder="21563474"/>
+                <input type="text" placeholder="{{logged_user.phone}}" />
                 <div class="icon">
-                    <a href="" data-bs-toggle="modal"
-                    data-bs-target="#exampleModal-p"><i class='bx bxs-edit' ></i></a>
-                    <div class="modal fade" id="exampleModal-p" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal-p"><i class='bx bxs-edit'></i></a>
+                    <div class="modal fade" id="exampleModal-p" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h1 class="modal-title fs-5 text-danger " id="exampleModalLabel">Change Phone Number</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    <h1 class="modal-title fs-5 text-danger " id="exampleModalLabel">Change Phone Number
+                                    </h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
                                     <label for="last_name">Phone Number</label>
                                     <input type="text" id="fs">
                                 </div>
                                 <div class="modal-footer">
-                                        <button type="button" class="btn btn-danger ">Confirm</button>
-                                </div>                                                            
+                                    <button type="button" class="btn btn-danger ">Confirm</button>
+                                </div>
                             </div>
                         </div>
-                    </div>                        
+                    </div>
                 </div>
             </div>
 
-            <div class="input_box">
-                <label for="home_adress">Home Address</label>
-                <input type="text" placeholder="Séville"/>
-                <div class="icon">
-                    <a href="" data-bs-toggle="modal"
-                    data-bs-target="#exampleModal-e"><i class='bx bxs-edit' ></i></a>
-                    <div class="modal fade" id="exampleModal-e" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5 text-danger " id="exampleModalLabel">Change Home Address</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <label for="last_name">Home Address</label>
-                                    <input type="text" id="fs">
-                                </div>
-                                <div class="modal-footer">
-                                        <button type="button" class="btn btn-danger ">Confirm</button>
-                                </div>                                                            
-                            </div>
-                        </div>
-                    </div>                        
-                </div>
-            </div>
+
 
             <div class="input_box">
                 <label for="email">Email</label>
-                <input type="text" placeholder="sergio@ramos.com"/>
+                <input type="text" placeholder="{{logged_user.email}}" />
                 <div class="icon">
-                    <a href="" data-bs-toggle="modal"
-                    data-bs-target="#exampleModal-e"><i class='bx bxs-edit' ></i></a>
-                    <div class="modal fade" id="exampleModal-e" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal-e"><i class='bx bxs-edit'></i></a>
+                    <div class="modal fade" id="exampleModal-e" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h1 class="modal-title fs-5 text-danger " id="exampleModalLabel">Change Email</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
                                     <label for="last_name">Email</label>
                                     <input type="text" id="fs">
                                 </div>
                                 <div class="modal-footer">
-                                        <button type="button" class="btn btn-danger ">Confirm</button>
-                                </div>                                                            
+                                    <button type="button" class="btn btn-danger ">Confirm</button>
+                                </div>
                             </div>
                         </div>
-                    </div>                        
+                    </div>
                 </div>
             </div>
 
@@ -275,16 +261,19 @@
 
             <div class="input-group">
 
-                <button type="button" class="btn btn-outline-danger btn-round w-25" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <button type="button" class="btn btn-outline-danger btn-round w-25" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">
                     Change Password
                 </button>
                 <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h1 class="modal-title fs-5 text-danger " id="exampleModalLabel">Change Password</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
                                 <form>
@@ -297,36 +286,40 @@
                                         <input type="password" class="form-control">
                                     </div>
                                     <div class="mb-3">
-                                        <label for="confirm_new_password" class="form-label">Confirm New Password Password</label>
+                                        <label for="confirm_new_password" class="form-label">Confirm New Password
+                                            Password</label>
                                         <input type="password" class="form-control">
                                     </div>
                                 </form>
                             </div>
                             <div class="modal-footer d-flex justify-content-sm-between m-5 p-5 ">
-                                    <button type="button" class="btn btn-secondary">YES</button>
-                                    <button type="button" class="btn btn-secondary">NO</button>
+                                <button type="button" class="btn btn-secondary">YES</button>
+                                <button type="button" class="btn btn-secondary">NO</button>
                             </div>
-                                                        
+
                         </div>
                     </div>
-                </div>        
+                </div>
             </div>
-                
+
             <!-- Delete Account -->
 
             <div class="input-group">
 
-                <button type="button" class="btn btn-outline-danger w-25" data-bs-toggle="modal" data-bs-target="#exampleModal-1">
+                <button type="button" class="btn btn-outline-danger w-25" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal-1">
                     Delete Account
                 </button>
 
                 <!-- Modal -->
-                <div class="modal fade" id="exampleModal-1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="exampleModal-1" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h1 class="modal-title fs-5 text-danger" id="exampleModalLabel">Delete Account</h1>
-                                <button type="button" class="btn-close " data-bs-dismiss="modal" aria-label="Close"></button>
+                                <button type="button" class="btn-close " data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
                                 <p>Are you Sure you want to delete your account ?</p>
@@ -344,8 +337,8 @@
         </form>
     </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
-</html>
 
+</html>

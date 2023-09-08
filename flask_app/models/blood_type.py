@@ -1,4 +1,7 @@
 from flask_app.config.mysqlconnection import MySQLConnection
+from flask_app import DATABASE_NAME
+
+
 
 b_comp = {
     "O+": ["O+", "A+", "B+", "AB+"],
@@ -16,8 +19,6 @@ class Blood_type:
     def __init__(self, data_dict):
         self.id = data_dict["id"]
         self.type = data_dict["type"]
-        self.id = data_dict["id"]
-        self.type = data_dict["type"]
 
     @classmethod
     def get_all():
@@ -32,7 +33,9 @@ class Blood_type:
             type = cls(row)
             all_types.append(type)
         return all_types
+
     
+
     @staticmethod
     def check_compatibility(donor_btype, recipient_btype):
         for blood in b_comp[donor_btype]:

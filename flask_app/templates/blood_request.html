@@ -19,75 +19,82 @@
                             <div class="small-logo">
                                 <i class="fab fa-asymmetrik"></i> Blood Request
                             </div>
-                            
-                            
 
 
-                            <div class="text-box-cont mt-3">
-                                <div class="form-group mb-3">
-                                    <form method= "post" action="/demand/create"> 
-                                    <label for="">Patient First Name :</label>
-                                    <input type="text" class="form-control"  aria-describedby="basic-addon1" name="patient_first_name">
-                                </div>
-                                <div class="form-group mb-3">
-                                    
-                                    <label for="">Patient Last Name :</label>
-                                    <input type="text" class="form-control"  aria-describedby="basic-addon1"  name="patient_last_name">
-                                </div>
-                                <div class="form-group mb-3">
-                                    
-                                    <label for="">Gender :</label>
-                                    <select name="gender" id=""class="form-control"  aria-describedby="basic-addon1" >
-                                        <option value="">Male</option>
-                                        <option value="">Female</option>
 
-                                    </select>
-                                    
-                                </div>
-                                
-                                <div class="form-group mb-2">
-                                    
-                                    <label for="">ID Card :</label>
-                                    <input type="number" class="form-control"  aria-describedby="basic-addon1" name="patient_CIN" >
-                                </div>
-                                <div class="form-group mb-3">
-                                    
-                                    <label for="">Blood Type :</label>
-                                    <select name="blood_type_id" id=""class="form-control"  aria-describedby="basic-addon1" >
-                                        {%for option in every %}
-                                        <option value="">{{option.blood_type.id}}</option>
-                                        {%endfor%}
-                                    </select>
-                                    
+                            <form method="post" action="/demand/create">
+                                <div class="text-box-cont mt-3">
+                                    <div class="form-group mb-3">
+
+                                        <label for="">Patient First Name :</label>
+                                        <input type="text" class="form-control" aria-describedby="basic-addon1"
+                                            name="patient_first_name">
+                                    </div>
+                                    <div class="form-group mb-3">
+
+                                        <label for="">Patient Last Name :</label>
+                                        <input type="text" class="form-control" aria-describedby="basic-addon1"
+                                            name="patient_last_name">
+                                    </div>
+                                    <div class="form-group mb-3">
+
+                                        <label for="">Gender :</label>
+                                        <select name="gender" id="" class="form-control"
+                                            aria-describedby="basic-addon1">
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option>
+
+                                        </select>
+
+                                    </div>
+
+                                    <div class="form-group mb-2">
+
+                                        <label for="">ID Card :</label>
+                                        <input type="number" class="form-control" aria-describedby="basic-addon1"
+                                            name="patient_CIN">
+                                    </div>
+                                    <div class="form-group mb-3">
+
+                                        <label for="">Blood Type :</label>
+                                        <select name="blood_type_id" id="" class="form-control"
+                                            aria-describedby="basic-addon1">
+                                            {%for option in every %}
+                                            <option value="{{option.id}}">{{option.type}}</option>
+                                            {%endfor%}
+                                        </select>
+
+                                    </div>
+
+                                    <div class="form-group mb-3">
+
+                                        <label for="">Hospital Address :</label>
+                                        <select id="" class="form-control" name="hospital_id">
+                                            {% for option in all_hospitals %}
+                                            <option value="{{option.id}}">{{option.name}}</option>
+                                            {%endfor%}
+                                        </select>
+
+                                    </div>
+
+
+                                    <div class="input-group center">
+                                        <input type="submit" value="Request" class="btn btn-danger btn-round">
+                                    </div>
+
+
+
                                 </div>
 
-                                <div class="form-group mb-3">
-                                    
-                                    <label for="">Hospital Address :</label>
-                                    <select name="hospital_address" id=""class="form-control"  aria-describedby="basic-addon1" name="hospital_id">
-                                        {%for option in every %}
-                                        <option value="">{{option.hospital.name}}</option>
-                                        {%endfor%}
-                                    </select>
-                                    
-                                </div>
-                            
-                                
-                                <div class="input-group center">
-                                    <button class="btn btn-danger btn-round">Request</button>
-                                </div> 
-                            
                             </form>
-                            
-                            </div>
-                            
-                            
-                            
-                            
-                        
+
+
+
+
+
 
                         </div>
-                        
+
                     </div>
                 </div>
             </div>

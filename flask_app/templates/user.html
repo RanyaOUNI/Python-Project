@@ -1,92 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="{{url_for('static', filename='css/user.css')}}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
-    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="{{url_for('static', filename='css/user.css')}}">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+
 </head>
+
 <body>
-    <div class="bg1">
-        <nav class="navbar navbar-expand-lg ">
-            <div class="container-fluid ">
-              <h1 class="navbar-brand col-5 text-white" href="#">Blood Donation</h1>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav ">
-                  <a class="nav-link active col-5   text-center text-white" aria-current="page" href="/my_account">My Account</a>
-                  <a href="/" class=" btn btn-secondary">Logout</a>
-                </div>
-                
-              </div>
-             
-            </div>
-          </nav> 
+  <div class="bg1">
+    <nav class="navbar navbar-expand-lg ">
+      <div class="container-fluid ">
+        <img src="{{url_for('static',filename='/img/BloodHub.png')}}" class="" alt="">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav ">
+            <a class="nav-link active col-5   text-center text-white" aria-current="page" href="/my_account">My
+              Account</a>
+            <form action="/logout" method="post">
+              <input type="submit" class="btn btn-danger" value="logout">
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+    </nav>
+
+
+
+    <!-- NEW NAV  -->
+
+
+
+
 
     <div class="container">
-        <section class="ftco-section">
-                <div class="row justify-content-center">
-                    <div class="col-md-6 text-center mb-5">
-                        <div>
-                            <h1 class="text-danger">welcome</h1>
-                        </div>
-                        <div class="button">
-                        
-                        <button><a href="/blood_request" class="btn btn-danger  " >Create Demand</a></button>
-                      </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div>
-                            <table class="table table-bordered">
-                              <thead >
-                            
-                                <tr class="table-danger">
-                                  <th scope="col">Blood Type</th>
-                                  <th scope="col">Hospital</th>
-                                  <th scope="col">Date of Demand</th>
-                                  <th scope="col">Action</th>
-                                  <th scope="col">Validation</th>
-                                  <th scope="col">Number of Donators</th>
-                                </tr>
-                              </thead>
-                              <tbody class="table-warning">
-                              {%for demand in every_demand%}
-                              <tr>
-                                <td>{{demand.blood_type.type}}</td>
-                                <td>{{demand.hospital.name}}</td>
-                                <td>{{demand.created_at}}</td>
-                                <td><button class="btn btn-success ">Donate</button></td>
-
-                                <td>
-                                  {%if demand.donation.is_confirmed == 1%}
-                                  {{"CONFIRMED"}}
-                                  {%else%}
-                                  {{"NOT CONFIRMED"}}
-                                  {%endif%}
-                                </td>
-                                <td>0</td>
-
-                              </tr>
-                              {%endfor%}
-                              
-                              </tbody> 
-                            </table>
-                        </div>
-                    </div>
-                </div>
+      <section class="ftco-section">
+        <div class="row justify-content-center">
+          <div class="col-md-6 text-center mb-5">
+            <div>
+              <h1 class="text-danger">welcome {{logged_user.first_name}}</h1>
             </div>
-        </section>
+            <div class="button">
 
 
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div>
+              <h1 class="">ALL DEMANDS </h1>
+              <table class="table table-bordered">
+                <thead>
+
+                  <tr class="table-danger">
+                    <th scope="col">Blood Type</th>
+                    <th scope="col">Hospital</th>
+                    <th scope="col">Date of Demand</th>
+                    <th scope="col">Action</th>
+                    <th scope="col">Validation</th>
+
+                  </tr>
+                </thead>
+                <tbody class="table-warning">
+                  {%for demand in every_demand%}
+                  <tr>
+                    <td>{{demand.blood_type.type}}</td>
+                    <td>{{demand.hospital.name}}</td>
+                    <td>{{demand.created_at}}</td>
+                    <td><a href="/donation/donate/{{demand.id}}"><button class="btn btn-success ">Donate</button></a>
+                    </td>
+
+                    <td>
+                      {%if demand.donation.is_confirmed == 2%}
+                      {{"CONFIRMED"}}
+                      {%else%}
+                      {{"NOT CONFIRMED"}}
+                      {%endif%}
+                    </td>
 
 
+                  </tr>
+                  {%endfor%}
+
+
+                </tbody>
+
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECOND TABLE  -->
+
+        <h1>YOUR DEMANDS </h1>
+        <table class="table table-bordered">
+          <thead>
+
+            <tr class="table-danger">
+              <th scope="col">Blood Type</th>
+              <th scope="col">Hospital</th>
+              <th scope="col">Date of Demand</th>
+              <th scope="col">Validation</th>
+            </tr>
+          </thead>
+          <tbody class="table-warning">
+            {%for demand in user_demand%}
+            <tr>
+              <td>{{demand.blood_type.type}}</td>
+              <td>{{demand.hospital.name}}</td>
+              <td>{{demand.created_at}}</td>
+              <td>
+                {{demand.donation.is_confirmed}}
+              </td>
+
+
+            </tr>
+            {%endfor%}
+
+
+          </tbody>
+
+        </table>
+        <div class="button">
+
+          <a href="/blood_request" class="btn btn-danger">Create Demand</a>
+        </div>
     </div>
-    
+
+    </section>
+
+
+
+
+  </div>
+
 </body>
+
 </html>

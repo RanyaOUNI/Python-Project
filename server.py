@@ -1,7 +1,5 @@
 from flask_app import app
-from flask_app.controllers import users
-from flask_app.controllers import donations
-from flask_app.controllers import demands
+from flask_app.controllers import admins, demands , hospitals , donations , users
 
 
 # ! Don't forget to import all controllers here 

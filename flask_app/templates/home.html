@@ -5,11 +5,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <link rel="stylesheet" href="{{url_for('static', filename='css/home.css')}}">
-  <link rel="stylesheet" href="{{url_for('static', filename='css/fontawsom-all.min.css')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/fontawesome-all.min.css')}}">
   <title>BloodHub</title>
-
 </head>
+
 <body>
 
   <!-- ======================header started====================== -->
@@ -28,17 +29,17 @@
                 <ul>
                   <li><a href="/">Home</a></li>
                   <li class="nav-item">
-                    
+
                     <a class="nav-link" href="#about">About Us</a>
                   </li>
-                  <li class="nav-item">                    
+                  <li class="nav-item">
                     <a class="nav-link" href="#process">Process</a>
                   </li>
                   <li class="nav-item">
-                    
+
                     <a class="nav-link" href="#contact">Contact Us</a>
                   </li>
-                  <li><a href="/login"><button type="button" class="btn btn-danger">Login</button></a></li> 
+                  <li><a href="/login"><button type="button" class="btn btn-danger">Login</button></a></li>
                   <li><a href="/register"><button type="button" class="btn btn-danger">Sign Up</button></a></li>
 
                 </ul>
@@ -49,13 +50,12 @@
       </div>
     </div>
   </header>
-
   <!-- ======================slider section started====================== -->
 
   <section id="carouselExampleFade" class="carousel slide carousel-fade slider" data-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active ">
-        <video class="V" autoplay muted loop id="myVideo " style="width:100%";>
+        <video class="V" autoplay muted loop id="myVideo " style="width:100%" ;>
           <source src="{{url_for('static',filename='/img/homepics/slider/blood_-_21617 (540p).mp4')}}" type="video/mp4">
         </video>
         <div class="carousel-caption">
@@ -64,87 +64,80 @@
             blood services play a critical role in the health of a society .</p>
           <div class="button-01">
             <ul>
-              <li><a href="/user">Contribute Today</a></li>
+              <li class="btn btn-danger "><a href="/login">Contribute Today</a></li>
             </ul>
           </div>
         </div>
-      </div>      
+      </div>
     </div>
-    <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
   </section>
 
   <!-- ====================== section started====================== -->
 
-  
-
-<!-- ====================== Featured started====================== -->
 
 
-<section id="about" class="contianer-fluid about-us">
-  <div class="container">
+  <!-- ====================== Featured started====================== -->
+
+
+  <section id="about" class="contianer-fluid about-us">
+    <div class="container">
       <div class="row session-title">
-          <h2>About Us</h2>
+        <h2>About Us</h2>
       </div>
       <br>
-        <div class="row">
-            <div class="col-md-6 text ">
-              <p>BloodHub is a charge free association that seeks to put into contact people who are in immediate need of blood transfusion with those that are willing and able to give. 
-              Our Team’s Purpose is to make the communication between both parties easier and faster for the users.
-              With our application being launched soon. People around Tunisia will be only a few clicks away from finding their donor. 
-              </p>
-            </div> 
-            <div class="col-md-6 image">
-              <img src="{{url_for('static',filename='/img/about.jpg')}}" alt="">
-            </div>
+      <div class="row">
+        <div class="col-md-10 text ">
+          <p>BloodHub is a charge free association that seeks to put into contact people who are in immediate need of
+            blood transfusion with those that are willing and able to give.
+            Our Team’s Purpose is to make the communication between both parties easier and faster for the users.
+            With our application being launched soon. People around Tunisia will be only a few clicks away from finding
+            their donor.
+          </p>
         </div>
-  </div>
-</section>
-
-<!-- ======================= Process ========================== -->
-<div id="process" class="row session-title">
-  <h2 class="m-lg-5 ">Process</h2>
-</div>
-<div class="d-flex justify-content-around fw-bolder   ">
-  <h3 class="text-danger ">Create Account :</h3>
-  <h3 class="text-danger ">Be a donor :</h3>
-  <h3 class="text-danger ">Request donation :</h3>
-</div>
-
-<section class="hero-section w-100">
-  
-  <div class="card-grid">
-    <a class="card" href="#">
-      <div class="card__background1"></div>
-      <div class="card__content">
-
+        <div class="col-md-2 image">
+          <img src="{{url_for('static',filename='/img/about.jpg')}}" alt="">
+        </div>
       </div>
-    </a>
-    <a class="card" href="#">
-      <div class="card__background2" ></div>
-      <div class="card__content">
-        
-
-      </div>
-    </a>
-    
-    <a class="card " href="#">
-      <div class="card__background3 "></div>
-      
-      <div class="card__content">
-        
-
-      </div></a>
     </div>
-</section>
+  </section>
 
-  
+  <!-- ======================= Process ========================== -->
+  <div id="process" class="row session-title">
+    <h2>Process</h2>
+  </div>
+  <div class="cards">
+    <div class="card1">
+
+    </div>
+  </div>
+
+  <section class="hero-section w-100">
+
+    <div class="card-grid">
+      <a class="card" href="#">
+        <div class="card__background1"></div>
+        <div class="cardcontent">
+
+        </div>
+      </a>
+      <a class="card" href="#">
+        <div class="card__background2"></div>
+        <div class="cardcontent">
+
+
+        </div>
+      </a>
+
+      <a class="card " href="#">
+        <div class="card__background3 "></div>
+
+        <div class="cardcontent">
+
+
+        </div>
+      </a>
+    </div>
+  </section>
 
   <!-- ====================== Footer Section started====================== -->
 
@@ -155,31 +148,40 @@
 
         <div class="col-lg-3 col-md-3 col-sm-6 col-12">
           <div class="_kl_de_w">
-            <h3>Services</h3>
-            <ol>
-              <li><i class="far fa-angle-right"></i>Raise fund for healthy food</li>
-              <li><i class="far fa-angle-right"></i>Education for poor children</li>
-              <li><i class="far fa-angle-right"></i>Promoting the rights of children</li>
-              <li><i class="far fa-angle-right"></i>Massive donation to poor</li>
-              <li class="last"><i class="far fa-angle-right"></i>Huge help to homeless pupil</li>
-            </ol>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-3 col-sm-6 col-12">
-          <div class="_kl_de_w">
-            <a href="/hospital_dashboard"><h3>Contact Us</h3></a>
+            <a href="/hospital_dashboard">
+              <h3>Contact Us</h3>
+            </a>
             <form class="my-form">
               <div class="form-group">
-                <input class="form-control" type="emal" name="email" placeholder="Email">
+                <input class="form-control" type="email" name="email" placeholder="Email">
               </div>
+              <br>
               <div class="form-group">
                 <textarea rows="3" placeholder="Message" class="form-control"></textarea>
               </div>
+              <br>
               <div class="form-group">
-                <a href="#">Submit</a>
+                <a href="#">Send</a>
               </div>
             </form>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-12">
+          <div class="_kl_de_w text-center">
+            <h3>Social</h3>
+            <ol class="social-icon mb-4 d-flex justify-content-center">
+              <li class="social-icon-item">
+                <a href="#" class="social-icon-link bi-facebook"><i
+                    class='bx bxl-facebook-circle bx-tada bx-lg'></i></a>
+              </li>
+              <li class="social-icon-item">
+                <a href="#" class="social-icon-link bi-instagram"><i class='bx bxl-instagram-alt bx-tada bx-lg'></i></a>
+              </li>
+              <li class="social-icon-item">
+                <a href="#" class="social-icon-link bi-whatsapp"><i class='bx bxl-whatsapp bx-tada bx-rotate-180 bx-lg'
+                    style='color:#c60c0c'></i></a>
+              </li>
+            </ol>
           </div>
         </div>
 
